@@ -80,12 +80,17 @@ public class ListSE {
             return;
         } else {
             Node temp = head;
-            while (temp != null && temp.getData().getId().equals(id)) {
+
+            while (temp.getNext() != null) {
+                if (temp.getData().getId().equals(id)) {
+                    temp.setNext(temp.getNext().getNext());
+                    size--;
+
+                }
                 temp = temp.getNext();
+
             }
-            temp.setNext(temp.getNext().getNext());
         }
-        size--;
     }
 
     public void deletedPosition(int position) {
