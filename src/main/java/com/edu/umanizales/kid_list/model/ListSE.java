@@ -2,12 +2,10 @@ package com.edu.umanizales.kid_list.model;
 
 import lombok.Data;
 
-import java.util.Scanner;
-
 @Data
 public class ListSE {
     private Node head;
-    private int size;
+    private int size = 1;
     private Node tail;
 
     public void add(Kid kid) {
@@ -22,7 +20,6 @@ public class ListSE {
         }
         size++;
     }
-
     public void addToStart(Kid kid) {
         if (head == null) {
             head = new Node(kid);
@@ -33,9 +30,8 @@ public class ListSE {
         }
         size++;
     }
-
     public void addInPosition(Kid kid, int position) {
-        if (head == null || position == 1) {
+        if (position == 1) {
                addToStart(kid);
         }
         else{
@@ -57,7 +53,6 @@ public class ListSE {
             }
         }
     }
-
     public void invertList() {
         if (size > 1) {
             //crear la lista copia
@@ -71,7 +66,6 @@ public class ListSE {
         }
 
     }
-
     public void deletedId(String id) {
         // si el id a eliminar está al principio de la lista
         if (head.getData().getId().equals(id)) {
@@ -92,7 +86,6 @@ public class ListSE {
             }
         }
     }
-
     public void deletedPosition(int position) {
         if (position < 1 || position > size + 1) {
             return;
@@ -111,7 +104,6 @@ public class ListSE {
         }
         size--;
     }
-
     public void changeExtre() {
         if (size > 1){
             Node temp = head;
